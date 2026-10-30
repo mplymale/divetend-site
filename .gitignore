@@ -1,0 +1,5 @@
+# Working copies kept locally — GitHub Pages serves everything in the repo,
+# so these would otherwise be live at divetend.com/index.old.html etc.
+index.old.html
+styles.dark.bak.css
+.DS_Store

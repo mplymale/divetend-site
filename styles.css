@@ -1,0 +1,157 @@
+/* Dive Tend — marketing site, the document pages
+ *
+ * The structure, scale and page vocabulary are ClearNight's marketing site,
+ * reused deliberately: same company, same shape of product, and a second
+ * invented system would be two things to maintain. What changes is the brand
+ * — Dive Tend's own palette and Montserrat, the typeface the app itself is
+ * set in — because two Strange Glyph apps should read as siblings, not as
+ * the same app twice.
+ *
+ * **Light, as of 2026-10-30.** These three pages were dark while index.html
+ * is light, so following "Privacy" flipped a visitor from a white page to a
+ * near-black one. ClearNight is dark throughout and that is coherent; a site
+ * that is half each is not. The tokens below are index.html's, named the
+ * same, so the two files cannot drift on colour.
+ *
+ * **Scope: privacy.html, terms.html and support.html only.** index.html
+ * carries its own inline styles and does not link this file. The landing
+ * block that used to live down the bottom (.hero, .features, .feature,
+ * .section, .badge) styled nothing on any page and was removed rather than
+ * left to look load-bearing.
+ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --header-a: #1B5466;
+  --header-b: #132C42;    /* nav wordmark, footer bar, body links */
+  --cyan: #2FC4D8;        /* accents only — it fails contrast as body text */
+  --ink: #16232C;
+  --sub: #67787F;
+  --sheet: #F2F6F7;
+  --card: #FFFFFF;
+  --border: #E1E8EA;
+  --green: #3F8F6B;
+  --amber: #C98A2E;
+  --font: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- chrome ---------- */
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.86);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 980px; margin: 0 auto; padding: 0 24px;
+  height: 56px; display: flex; align-items: center; gap: 24px;
+}
+
+/* The nav is light now, so it takes the NAVY wordmark — the same cut
+   index.html uses. The white cut is for the footer bar below. */
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo img { height: 22px; width: auto; display: block; }
+
+/* ClearNight's treatment for a document page: the mark, and one way back.
+   These pages carry no nav links — Privacy, Terms and Support all live in
+   the footer bar, so the header does not need to repeat them, and a reader
+   who followed a link in from the app wants out more than they want across. */
+.nav-back {
+  margin-left: auto;
+  font-size: 13.5px; font-weight: 600; color: var(--sub);
+  text-decoration: none;
+}
+.nav-back:hover { color: var(--ink); }
+
+/* Matches index.html's footer so the bottom of the site is one bar. */
+footer { background: var(--header-b); color: rgba(255,255,255,0.6); }
+.footer-inner {
+  max-width: 980px; margin: 0 auto; padding: 26px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px; flex-wrap: wrap; font-size: 13.5px;
+}
+.footer-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-mark { display: block; }
+.footer-mark img { height: 17px; width: auto; display: block; opacity: 0.9; }
+.footer-links { display: flex; gap: 22px; list-style: none; }
+.footer-links a { color: rgba(255,255,255,0.72); text-decoration: none; }
+.footer-links a:hover { color: #fff; }
+
+/* ---------- document pages ---------- */
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
+
+.page-header {
+  margin-bottom: 44px; padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+  font-size: 32px; font-weight: 800; color: var(--ink);
+  letter-spacing: -0.6px; margin-bottom: 8px;
+}
+.page-header p { font-size: 14px; color: var(--sub); }
+
+h2 {
+  font-size: 18px; font-weight: 700; color: var(--ink);
+  margin: 40px 0 12px; letter-spacing: -0.2px;
+}
+h3 {
+  font-size: 15px; font-weight: 700; color: var(--ink);
+  margin: 24px 0 8px;
+}
+
+p { margin-bottom: 14px; line-height: 1.7; color: var(--sub); }
+strong { color: var(--ink); font-weight: 700; }
+
+ul { margin: 0 0 14px 20px; line-height: 1.8; color: var(--sub); }
+ul li { margin-bottom: 4px; }
+
+/* **Not cyan.** #2FC4D8 on white is about 1.9:1 — it fails WCAG AA badly,
+   and these are the pages a regulator reads. Navy carries the link weight
+   and the underline does the rest. */
+a { color: var(--header-b); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--header-a); }
+
+/* The short-version box at the top of a policy. Same role as ClearNight's. */
+.callout {
+  background: rgba(47,196,216,0.08);
+  border: 1px solid rgba(47,196,216,0.30);
+  border-radius: 10px; padding: 16px 20px; margin: 24px 0;
+  font-size: 15px; line-height: 1.65;
+}
+.callout p:last-child { margin-bottom: 0; }
+
+/* For the one thing on a safety-adjacent page that must not be skimmed. */
+.callout.is-warning {
+  background: rgba(201,138,46,0.09);
+  border-color: rgba(201,138,46,0.34);
+}
+
+table { width: 100%; border-collapse: collapse; margin: 18px 0 22px; font-size: 14.5px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+th { color: var(--ink); font-weight: 700; font-size: 12px;
+     text-transform: uppercase; letter-spacing: 0.06em; }
+td { color: var(--sub); }
+td:not(:first-child) { text-align: center; }
+.yes { color: var(--green); font-weight: 700; }
+.no  { color: var(--sub); }
+
+@media (max-width: 560px) {
+  .nav-back { font-size: 12.5px; }
+  .wrap { padding: 40px 20px 72px; }
+  .page-header h1 { font-size: 27px; }
+}
