@@ -55,23 +55,24 @@
   <p>Photos you attach are resized on your device before anything is uploaded, and only that smaller copy is ever sent. The full-size original stays on your phone and is never replaced. On the free plan no photo is uploaded at all.</p>
 
   <h3>Diagnostics</h3>
-  <p>We use <strong>Google Analytics for Firebase</strong> and <strong>Crashlytics</strong> to see which screens are used and to be told when the app crashes. These receive app events and crash reports — never your gear, serial numbers, photos or notes.</p>
+  <p>We use <strong>PostHog</strong> to see which parts of the app are used and to be told when something breaks. PostHog receives app events — a screen opened, an item added, a service logged — and never your gear, serial numbers, photos or notes.</p>
 
   <h2>Advertising</h2>
   <p>Free users see ads served by <strong>Google AdMob</strong>. Google may collect device and advertising identifiers, general device information and approximate location to serve and measure ads. In the EEA and UK you are asked for consent first, and you can decline; in the US you can turn off personalised ads and exercise Do Not Sell or Share, both in Settings → Ads &amp; privacy. Premium subscribers see no ads at all.</p>
   <p><strong>No advertiser receives anything you enter into Dive Tend.</strong> Your locker is never shared with an ad network — not now, not ever. The ad SDK and your gear data are separate systems that do not meet.</p>
-  <p>Because Google is both our ad network and our analytics provider, they are a disclosed processor for both purposes. We are naming that rather than implying a separation that does not exist.</p>
+  <p>Google is our ad network only. Our analytics are handled by a separate company, PostHog, which receives no advertising identifiers and never sees what is in your locker.</p>
 
   <h2>Who else processes your data</h2>
   <ul>
-    <li><strong>Supabase</strong> — database and authentication for subscriber accounts. Data is stored in the United States. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</li>
+    <li><strong>Supabase</strong> — database and authentication for subscriber accounts. Data is stored in the European Union (Ireland). <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</li>
     <li><strong>Apple</strong> — processes all purchases. We receive confirmation only.</li>
     <li><strong>Resend</strong> — delivers sign-in codes and service email. <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>.</li>
-    <li><strong>Google (AdMob, Analytics for Firebase, Crashlytics)</strong> — advertising, product analytics and crash reporting. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</li>
+    <li><strong>Google (AdMob)</strong> — advertising on the free plan. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</li>
+    <li><strong>PostHog</strong> — product analytics and error reporting. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">Privacy policy</a>.</li>
   </ul>
 
   <h2>International transfers</h2>
-  <p>We are a US business and our servers are in the United States. If you use Dive Tend in the EEA or UK, your data is transferred to the US under the European Commission's Standard Contractual Clauses, which our processors operate under.</p>
+  <p>Strange Glyph, LLC is a US business, and the database holding subscriber accounts is hosted in the European Union (Ireland). Where any of our processors transfers data outside the EEA or UK, that transfer is made under the European Commission's Standard Contractual Clauses.</p>
 
   <h2>How long we keep it</h2>
   <p>Your locker is kept while your account exists. If your subscription lapses, the cloud copy is retained for <strong>90 days</strong> and then permanently deleted — your device copy is never touched, and we tell you before the window closes so you can export or resubscribe. Deleting your account removes your data from our systems immediately. Your photos and documents are stored separately from the database and are deleted outright — they are not held in any database backup. Database records can persist in our provider's encrypted daily backups for up to <strong>7 days</strong> after deletion, after which they age out and are gone.</p>
