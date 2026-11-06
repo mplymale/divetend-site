@@ -83,11 +83,13 @@
       background: var(--header-b); color: #fff; text-decoration: none;
       font-size: 13.5px; font-weight: 700; padding: 10px 18px; border-radius: 10px;
     }
+    .nav-cta:hover { background: var(--header-a); }
     .nav-hamburger { display: none; background: none; border: 0; cursor: pointer; width: 28px; height: 22px; flex-direction: column; justify-content: space-between; }
     .nav-hamburger span { display: block; height: 2px; background: var(--header-b); border-radius: 2px; }
     .nav-mobile-menu { display: none; flex-direction: column; border-top: 1px solid var(--border); }
     .nav-mobile-menu.open { display: flex; }
     .nav-mobile-menu a { padding: 14px 24px; color: var(--ink); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--border); }
+    .nav-mobile-menu a.nav-mobile-cta { color: var(--header-b); font-weight: 800; }
 
     /* HERO */
     .hero {
@@ -130,10 +132,24 @@
       max-width: 1100px; margin: 0 auto; padding: 76px 24px;
       display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center;
     }
+    /* Grid items default to min-width:auto, so the two 190px phone frames
+       (flex-shrink:0) were forcing the single-column layout wider than the
+       viewport and clipping the hero copy on a phone. The phones are meant
+       to bleed off the edge; the text is not. */
+    .hero-inner > * { min-width: 0; }
     .hero-h1 { font-size: clamp(34px, 5.2vw, 56px); font-weight: 800; line-height: 1.08; letter-spacing: -0.025em; }
     .hero-h1 span { color: var(--cyan); }
     .hero-sub { margin-top: 20px; font-size: 17.5px; line-height: 1.6; color: rgba(255,255,255,0.78); max-width: 520px; }
     .hero-btns { margin-top: 30px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    /* The hero sits on the dark header gradient, so the primary action is
+       light-on-dark. The pricing CTA (.btn-primary) is the inverse, because
+       that card is on the light sheet. */
+    .btn-store {
+      display: inline-flex; align-items: center;
+      background: #fff; color: var(--header-b); text-decoration: none;
+      font-weight: 700; font-size: 15px; padding: 15px 24px; border-radius: 13px;
+    }
+    .btn-store:hover { background: var(--sheet); }
     .badge {
       display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
       background: rgba(47,196,216,0.16); color: var(--cyan);
@@ -279,13 +295,14 @@
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="support.html">Support</a></li>
     </ul>
-    <span class="nav-cta">Coming soon</span>
+    <a class="nav-cta" href="https://apps.apple.com/app/id6805508240">Download</a>
   </div>
   <div class="nav-mobile-menu" id="mobile-menu">
     <a href="#features">Features</a>
     <a href="#how-it-works">How it works</a>
     <a href="#pricing">Pricing</a>
     <a href="support.html">Support</a>
+    <a href="https://apps.apple.com/app/id6805508240" class="nav-mobile-cta">Download on the App Store</a>
   </div>
 </nav>
 
@@ -297,9 +314,8 @@
       <h1 class="hero-h1">Know what&rsquo;s due<br><span>before you&rsquo;re at the dock.</span></h1>
       <p class="hero-sub">Dive Tend keeps your regulators, computers, cylinders and suits in one place &mdash; with their service history, their warranties and what&rsquo;s coming up next.</p>
       <div class="hero-btns">
-        <!-- Honest until it ships. No App Store link exists yet, and a dead
-             button is worse than no button. -->
-        <span class="badge">Coming to the App Store</span>
+        <a class="btn-store" href="https://apps.apple.com/app/id6805508240">Download on the App Store</a>
+        <span class="badge">Free &middot; iPhone &amp; iPad</span>
       </div>
     </div>
     <div class="phone-wrap">
@@ -456,7 +472,7 @@
         </div>
       </div>
 
-      <span class="btn-primary is-disabled">Coming to the App Store</span>
+      <a class="btn-primary" href="https://apps.apple.com/app/id6805508240">Download on the App Store</a>
       <p class="price-note">Plans are purchased inside the app. Includes a 7-day free trial through Apple. It needs a payment method and becomes a paid plan unless you cancel before it ends. <strong>Export is free on every plan, forever</strong> &mdash; paid backup should be a service, not a hostage.</p>
     </div>
   </div>
